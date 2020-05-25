@@ -27,7 +27,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 	@Autowired
 	public StudentRepositoryImpl(MongoOperations operations) {
 
-		Assert.notNull(operations);
+		//Assert.notNull(operations);
 		this.operations = operations;
 	}
 	@Override
@@ -50,7 +50,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public <S extends Student> S insert(S entity) {
-		// TODO Auto-generated method stub
+		operations.insert(entity);
 		return null;
 	}
 

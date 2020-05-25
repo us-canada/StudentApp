@@ -26,5 +26,12 @@ public class StudentController {
 		return studentService.getStudent();
 	}
 	
+	@RequestMapping(value = "/student", method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE })
+	public void addStudents(Student s) {
+ 
+		studentService.addStudent(s);
+		
+	}
+		
 	
 }

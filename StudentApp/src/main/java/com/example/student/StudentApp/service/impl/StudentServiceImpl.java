@@ -15,13 +15,17 @@ public class StudentServiceImpl implements StudentService {
 
 	@Autowired
 	StudentRepository studentRepository;
-	
-	
+
 	@Override
 	public List<Student> getStudent() {
-			
-		
+
 		return studentRepository.findAll();
+	}
+
+	@Override
+	public void addStudent(Student s) {
+
+		studentRepository.insert(s);
 	}
 
 }
