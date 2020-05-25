@@ -10,8 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.mongodb.core.query.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 
@@ -110,13 +111,12 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public void deleteById(String id) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void delete(Student entity) {
-		// TODO Auto-generated method stub
+     
 		
 	}
 
@@ -154,6 +154,11 @@ public class StudentRepositoryImpl implements StudentRepository {
 	public <S extends Student> boolean exists(Example<S> example) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	public void deleteByRollNo(Integer rollNo) {
+
+		   Query query = new Query(Criteria.where("rollNo").is(rollNo));
+			operations.findAndRemove(query, Student.class);		
 	}
 
 

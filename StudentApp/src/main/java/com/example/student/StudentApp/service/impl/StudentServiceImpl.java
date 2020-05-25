@@ -28,4 +28,10 @@ public class StudentServiceImpl implements StudentService {
 		studentRepository.insert(s);
 	}
 
+	@Override
+	public void deleteStudent(Integer rollNo) {
+		studentRepository.deleteByRollNo(rollNo);
+		
+	}
+
 }

@@ -8,5 +8,6 @@ import com.example.student.StudentApp.Model.Student;
 
 public interface StudentRepository extends MongoRepository<Student, String> {
 
+	public void deleteByRollNo(Integer rollNo);
 
 }

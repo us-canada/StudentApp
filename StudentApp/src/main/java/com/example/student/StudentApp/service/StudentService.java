@@ -11,6 +11,7 @@ public interface StudentService {
 	
 	public List<Student> getStudent();
 	public void addStudent( Student s);
+	public void deleteStudent(Integer rollNo);
 	
 
 }

@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.student.StudentApp.Model.Student;
@@ -27,11 +29,17 @@ public class StudentController {
 	}
 	
 	@RequestMapping(value = "/student", method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE })
-	public void addStudents(Student s) {
+	public void addStudents(@RequestBody Student s) {
  
 		studentService.addStudent(s);
 		
 	}
+	@RequestMapping(value = "/student", method = RequestMethod.DELETE, produces = { MediaType.APPLICATION_JSON_VALUE })
+	public void deleteStudents(@RequestParam Integer rollNo) {
+ 
+		studentService.deleteStudent(rollNo);
 		
+	}
+			
 	
 }
